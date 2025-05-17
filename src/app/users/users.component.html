@@ -1,0 +1,8 @@
+<div>
+
+    <!-- the syntax of bindeing css classes is like this  -->
+    <button [class.active]="active" (click)="onSelectUser()">
+    <img [src]="imagePath" [alt]= "user.name"/>
+    <span >{{user.name}}</span>
+</button>
+</div>

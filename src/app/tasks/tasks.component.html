@@ -1,0 +1,25 @@
+@if(isAddingNewTask){
+    <app-new-task [userId]="id" (closeTaskDialog)="onCancelAddingTask()" (submitTask)="onSubmitNewTask()" />
+}
+
+
+
+<section id="tasks">
+    <header>
+        <h2>{{name}}'s Tasks </h2>
+        <menu>
+            <button (click)="onAddNewTask()">
+                <!-- <app-new-task/> --> Add Task
+            </button>
+        </menu>
+    </header>
+
+    <ul>
+        @for(task of selectedUserTask; track task.id){
+            <li>
+                <app-task  [task]="task" />  <!--don't forget to call the function that have been emmited -->
+            </li>
+        }
+       
+    </ul>
+</section>

@@ -1,0 +1,19 @@
+<app-header />
+
+<main>
+  <ul id="users">
+    <!-- @for (user of users; track user.id){ -->
+      <li *ngFor="let user of users">
+        <app-users
+          (userActions)="onSelectUser($event)"
+         [user]="user"
+         [active]="user.id === selectedUserId"
+        />
+      </li>
+    <!-- } -->
+  </ul>
+@if(selectedUserId){
+  <app-tasks [avatar]="user_avatar" [name]="user_name" [id]="selectedUserId"/>
+
+}
+</main>
